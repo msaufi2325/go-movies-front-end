@@ -11,6 +11,21 @@ function App() {
           </a>
         </div>
       </div>
+      <div className="row">
+        <div className="col-md-2">
+          <nav>
+            <div className="list-group">
+              <a href="#!" className="list-group-item list-group-item-action">
+                Home
+              </a>
+              <a href="#!" className="list-group-item list-group-item-action">
+                Movies
+              </a>
+            </div>
+          </nav>
+        </div>
+        <div className="col-md-10"></div>
+      </div>
     </div>
   );
 }
