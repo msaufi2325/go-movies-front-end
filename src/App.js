@@ -10,6 +10,7 @@ function App() {
             <span className="badge bg-success">Login</span>
           </a>
         </div>
+        <hr className="mb-3"></hr>
       </div>
       <div className="row">
         <div className="col-md-2">
