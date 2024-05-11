@@ -7,6 +7,9 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (email === "admin@example.com") {
+    }
   };
   return (
     <div className="col-md-6 offset-md-3">
