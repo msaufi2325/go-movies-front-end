@@ -8,7 +8,7 @@ function App() {
           <h1 className="mt-3">Go Watch a Movie!</h1>
         </div>
         <div className="col text-end">
-          <Link to="#!">
+          <Link to="/login">
             <span className="badge bg-success">Login</span>
           </Link>
         </div>
@@ -40,7 +40,7 @@ function App() {
                 Add Movie
               </Link>
               <Link
-                to="/admin"
+                to="/manage-catalogue"
                 className="list-group-item list-group-item-action"
               >
                 Manage Catalogue
