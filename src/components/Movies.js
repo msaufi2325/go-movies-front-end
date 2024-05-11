@@ -39,7 +39,7 @@ const Movies = () => {
   }, []);
 
   return (
-    <div className="text-center">
+    <div>
       <h2>Movies</h2>
       <hr />
       <table className="table table-striped table-hover">
