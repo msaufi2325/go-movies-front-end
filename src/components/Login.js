@@ -7,6 +7,8 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const { setJwtToken } = useOutletContext();
+  const { setAlertClassName } = useOutletContext();
+  const { setAlertMessage } = useOutletContext();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,8 +16,14 @@ const Login = () => {
 
     if (email === "admin@example.com") {
       setJwtToken("abc");
+      setAlertClassName("d-none");
+      setAlertMessage("");
+    } else {
+      setAlertClassName("alert-danger");
+      setAlertMessage("Invalid email or password");
     }
   };
+
   return (
     <div className="col-md-6 offset-md-3">
       <h2>Login</h2>
