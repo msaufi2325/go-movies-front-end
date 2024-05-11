@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 
 function App() {
-  const [jwtToken, setJwtToken] = useState("abc");
+  const [jwtToken, setJwtToken] = useState("");
 
   return (
     <div className="container">
@@ -42,24 +42,28 @@ function App() {
               >
                 Genres
               </Link>
-              <Link
-                to="/admin/movie/0"
-                className="list-group-item list-group-item-action"
-              >
-                Add Movie
-              </Link>
-              <Link
-                to="/manage-catalogue"
-                className="list-group-item list-group-item-action"
-              >
-                Manage Catalogue
-              </Link>
-              <Link
-                to="/graphql"
-                className="list-group-item list-group-item-action"
-              >
-                GraphQL
-              </Link>
+              {jwtToken !== "" && (
+                <>
+                  <Link
+                    to="/admin/movie/0"
+                    className="list-group-item list-group-item-action"
+                  >
+                    Add Movie
+                  </Link>
+                  <Link
+                    to="/manage-catalogue"
+                    className="list-group-item list-group-item-action"
+                  >
+                    Manage Catalogue
+                  </Link>
+                  <Link
+                    to="/graphql"
+                    className="list-group-item list-group-item-action"
+                  >
+                    GraphQL
+                  </Link>
+                </>
+              )}
             </div>
           </nav>
         </div>
