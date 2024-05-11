@@ -1,10 +1,10 @@
-const EditMovie = () => {
+const GraphQL = () => {
   return (
     <div className="text-center">
-      <h2>Edit Movie</h2>
+      <h2>GraphQL</h2>
       <hr />
     </div>
   );
 };
 
-export default EditMovie;
+export default GraphQL;
