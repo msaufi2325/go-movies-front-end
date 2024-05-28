@@ -10,9 +10,19 @@ function App() {
   const navigate = useNavigate();
 
   const logOut = () => {
-    setJwtToken("");
-    setAlertClassName("alert-success");
-    setAlertMessage("You have been logged out");
+    const requestOptions = {
+      method: "GET",
+      credentials: "include",
+    };
+
+    fetch(`/logout`, requestOptions)
+      .catch((error) => {
+        console.log("error logging out", error);
+      })
+      .finally(() => {
+        setJwtToken("");
+      });
+
     navigate("/login");
   };
 
