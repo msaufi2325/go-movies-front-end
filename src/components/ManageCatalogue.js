@@ -30,7 +30,7 @@ const ManageCatalogue = () => {
 
   return (
     <div>
-      <h2>Movies</h2>
+      <h2>Manage Catalogue</h2>
       <hr />
       <table className="table table-striped table-hover">
         <thead>
@@ -45,7 +45,7 @@ const ManageCatalogue = () => {
             return (
               <tr key={movie.id}>
                 <td>
-                  <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
+                  <Link to={`/admin/movies/${movie.id}`}>{movie.title}</Link>
                 </td>
                 <td>{movie.release_date}</td>
                 <td>{movie.mpaa_rating}</td>
