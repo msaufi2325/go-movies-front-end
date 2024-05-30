@@ -36,8 +36,23 @@ function App() {
       if (status) {
         console.log("turning on ticking");
         let i = setInterval(() => {
-          console.log("this will run every second");
-        }, 1000);
+          const requestOptions = {
+            method: "GET",
+            credentials: "include",
+          };
+          fetch(`/refresh`, requestOptions).then((response) =>
+            response
+              .json()
+              .then((data) => {
+                if (data.access_token) {
+                  setJwtToken(data.access_token);
+                }
+              })
+              .catch((error) => {
+                console.log("user is not logged in");
+              })
+          );
+        }, 600000);
         setTickInterval(i);
         console.log("setting tick interval to ", i);
       } else {
