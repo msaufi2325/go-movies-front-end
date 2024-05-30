@@ -144,6 +144,7 @@ function App() {
               setJwtToken,
               setAlertClassName,
               setAlertMessage,
+              toggleRefresh,
             }}
           />
         </div>
