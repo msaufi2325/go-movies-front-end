@@ -20,7 +20,7 @@ const ManageCatalogue = () => {
       headers: headers,
     };
 
-    fetch(`/admin/movies`, requestOptions)
+    fetch(`http://localhost:8080/admin/movies`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         setMovies(data);
