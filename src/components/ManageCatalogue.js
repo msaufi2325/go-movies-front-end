@@ -13,13 +13,14 @@ const ManageCatalogue = () => {
     }
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
+    headers.append("Authorization", `Bearer ${jwtToken}`);
 
     const requestOptions = {
       method: "GET",
       headers: headers,
     };
 
-    fetch(`http://localhost:8080/movies`, requestOptions)
+    fetch(`/admin/movies`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         setMovies(data);
