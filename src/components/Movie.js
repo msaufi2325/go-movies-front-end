@@ -6,17 +6,30 @@ const Movie = () => {
   let { id } = useParams();
 
   useEffect(() => {
-    let myMovie = {
-      id: 1,
-      title: "The Shawshank Redemption",
-      release_date: "1994-10-14",
-      runtime: 142,
-      mpaa_rating: "R",
-      description:
-        "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+    const headers = new Headers();
+    headers.append("Content-Type", "application/json");
+
+    const requestOptions = {
+      method: "GET",
+      headers: headers,
     };
-    setMovie(myMovie);
+
+    fetch(`/movies/${id}`, requestOptions)
+      .then((response) => response.json())
+      .then((data) => {
+        setMovie(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, [id]);
+
+  if (movie.genres) {
+    movie.genres = Object.values(movie.genres);
+  } else {
+    movie.genres = [];
+  }
+
   return (
     <div>
       <h2>Movie: {movie.title}</h2>
@@ -26,7 +39,23 @@ const Movie = () => {
           {movie.mpaa_rating}
         </em>
       </small>
+      <br />
+      {movie.genres.map((g) => (
+        <span key={g.genre} className="badge bg-secondary me-2">
+          {g.genre}
+        </span>
+      ))}
       <hr />
+
+      {movie.image !== "" && (
+        <div className="mb-3">
+          <img
+            src={`https://image.tmdb.org/t/p/w200/${movie.image}`}
+            alt="poster"
+          />
+        </div>
+      )}
+
       <p>{movie.description}</p>
     </div>
   );
