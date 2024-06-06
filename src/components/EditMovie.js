@@ -74,7 +74,7 @@ const EditMovie = () => {
         .then((data) => {
           const checks = [];
 
-          data.array.forEach((g) => {
+          data.forEach((g) => {
             checks.push({ id: g.id, checked: false, genre: g.genre });
           });
 
@@ -90,7 +90,7 @@ const EditMovie = () => {
     } else {
       // editing an existing movie
     }
-  }, [id, movie, jwtToken, navigate]);
+  }, [id, jwtToken, navigate]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -161,20 +161,22 @@ const EditMovie = () => {
           onChange={handleChange("mpaa_rating")}
           placeHolder={"Choose..."}
           errorMsg={"Please choose"}
-          errorDiv={hasError("mpaa_raging") ? "text-danger" : "d-none"}
+          errorDiv={hasError("mpaa_rating") ? "text-danger" : "d-none"}
         />
 
         <TextArea
-          title={"Description"}
+          title="Description"
           name={"description"}
           value={movie.description}
-          rows={3}
+          rows={"3"}
           onChange={handleChange("description")}
-          errorDiv={hasError("description") ? "text-danger" : "d-none"}
           errorMsg={"Please enter a description"}
+          errorDiv={hasError("description") ? "text-danger" : "d-none"}
         />
 
         <hr />
+
+        <h3>Genres</h3>
 
         {movie.genres && movie.genres.length > 1 && (
           <>
@@ -191,8 +193,6 @@ const EditMovie = () => {
             ))}
           </>
         )}
-
-        <h3>Genres</h3>
       </form>
     </div>
   );
