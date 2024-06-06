@@ -31,6 +31,8 @@ const EditMovie = () => {
     runtime: "",
     mpaa_rating: "",
     description: "",
+    genres: [],
+    genres_array: [Array(13).fill(false)],
   });
 
   // get id from the URL
