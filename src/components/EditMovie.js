@@ -79,7 +79,7 @@ const EditMovie = () => {
           });
 
           setMovie((m) => ({
-            ...movie,
+            ...m,
             genres: checks,
             genres_array: [],
           }));
@@ -110,6 +110,21 @@ const EditMovie = () => {
     console.log("value in handleCheck: ", e.target.value);
     console.log("checked is ", e.target.checked);
     console.log("position is ", position);
+
+    let tmpArr = movie.genres;
+    tmpArr[position].checked = !tmpArr[position].checked;
+
+    let tmpIDs = movie.genres_array;
+    if (!e.target.checked) {
+      tmpIDs.splice(tmpIDs.indexOf(e.target.value));
+    } else {
+      tmpIDs.push(parseInt(e.target.value, 10));
+    }
+
+    setMovie({
+      ...movie,
+      genres_array: tmpIDs,
+    });
   };
 
   return (
