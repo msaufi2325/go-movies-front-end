@@ -110,6 +110,11 @@ const EditMovie = () => {
       }
     })
 
+    if (movie.genres_array.length === 0) {
+      alert("You must choose at least one genre!");
+      errors.push("genres");
+    }
+
     setErrors(errors);
 
     if (errors.length > 0) {
