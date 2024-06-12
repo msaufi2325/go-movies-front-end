@@ -76,7 +76,8 @@ const EditMovie = () => {
           const checks = [];
 
           data.forEach((g) => {
-            checks.push({ id: g.id, checked: false, genre: g.genre });
+            checks.push({ id: g.id, checked: false, 
+            genre: g.genre });
           });
 
           setMovie((m) => ({
@@ -135,7 +136,7 @@ const EditMovie = () => {
     // assume we are adding a new movie
     let method = "PUT";
 
-    if (movie.id === 0) {
+    if (movie.id > 0) {
       method = "PATCH";
     }
 
@@ -157,13 +158,13 @@ const EditMovie = () => {
     .then((response) => response.json())
     .then((data) => {
       if (data.error) {
-        console.log(data.error)
+        console.log(data.error);
       } else {
         navigate("/manage-catalogue");
       }
     })
     .catch((err) => {
-      console.log(err)
+      console.log(err);
     })
     
   };
