@@ -241,7 +241,7 @@ const EditMovie = () => {
   };
 
   return (
-    <div>
+    <div className="mb-5">
       <h2>Add/ Edit Movie</h2>
       <hr />
       {/* <pre>{JSON.stringify(movie, null, 3)}</pre> */}
@@ -286,6 +286,7 @@ const EditMovie = () => {
           title={"MPAA Rating"}
           name={"mpaa_rating"}
           options={mpaaOptions}
+          value={movie.mpaa_rating}
           onChange={handleChange("mpaa_rating")}
           placeHolder={"Choose..."}
           errorMsg={"Please choose"}
