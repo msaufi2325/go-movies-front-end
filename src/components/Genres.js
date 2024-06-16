@@ -33,7 +33,7 @@ const Genres = () => {
     return <div>Error: {error.message}</div>;
   } else {
     return (
-      <div className="text-center">
+      <div>
         <h2>Genres</h2>
         <hr />
 
@@ -43,9 +43,9 @@ const Genres = () => {
               key={g.id}
               className="list-group-item list-group-item-action"
               to={`/genres/${g.id}`}
-              state={{ genreName: g.name }}
+              state={{ genreName: g.genre }}
             >
-              {g.name}
+              {g.genre}
             </Link>
           ))}
         </div>
