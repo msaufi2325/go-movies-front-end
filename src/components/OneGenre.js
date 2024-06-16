@@ -52,7 +52,7 @@ const OneGenre = () => {
           </tr>
         </thead>
         <tbody>
-          {movies.map((m) => {
+          {movies.map((m) => (
             <tr key={m.id}>
               <td>
                 <Link to={`/movies/${m.id}`}>
@@ -62,7 +62,7 @@ const OneGenre = () => {
               <td>{m.release_date}</td>
               <td>{m.mpaa_rating}</td>
             </tr>
-          })}
+          ))}
         </tbody>
       </table>
 
