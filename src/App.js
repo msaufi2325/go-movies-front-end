@@ -17,7 +17,7 @@ function App() {
       credentials: "include",
     };
 
-    fetch(`/logout`, requestOptions)
+    fetch(`${process.env.REACT_APP_BACKEND}/logout`, requestOptions)
       .catch((error) => {
         console.log("error logging out", error);
       })
@@ -40,7 +40,7 @@ function App() {
             method: "GET",
             credentials: "include",
           };
-          fetch(`/refresh`, requestOptions).then((response) =>
+          fetch(`${process.env.REACT_APP_BACKEND}/refresh`, requestOptions).then((response) =>
             response
               .json()
               .then((data) => {
@@ -72,7 +72,7 @@ function App() {
         credentials: "include",
       };
 
-      fetch(`/refresh`, requestOptions).then((response) =>
+      fetch(`${process.env.REACT_APP_BACKEND}/refresh`, requestOptions).then((response) =>
         response
           .json()
           .then((data) => {
