@@ -36,7 +36,7 @@ const Login = () => {
           setAlertClassName("alert-danger");
           setAlertMessage(data.message);
         } else {
-          setJwtToken(data.token);
+          setJwtToken(data.access_token);
           setAlertClassName("d-none");
           setAlertMessage("");
           toggleRefresh(true);
