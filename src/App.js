@@ -40,18 +40,16 @@ function App() {
             method: "GET",
             credentials: "include",
           };
-          fetch(`${process.env.REACT_APP_BACKEND}/refresh`, requestOptions).then((response) =>
-            response
-              .json()
-              .then((data) => {
-                if (data.access_token) {
-                  setJwtToken(data.access_token);
-                }
-              })
-              .catch((error) => {
-                console.log("user is not logged in");
-              })
-          );
+          fetch(`${process.env.REACT_APP_BACKEND}/refresh`, requestOptions)
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.access_token) {
+              setJwtToken(data.access_token);
+            }
+          })
+          .catch((error) => {
+            console.log("user is not logged in", error);
+          })
         }, 600000);
         setTickInterval(i);
         console.log("setting tick interval to ", i);
